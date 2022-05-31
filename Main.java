@@ -1,24 +1,57 @@
-import java.util.ArrayList;
-import java.util.List;
+
+
+import java.util.Scanner;
 
 public class Main {
+        Scanner scan = new Scanner(System.in);
+        String ch;
+        int deposit;
+        int withdraw;
+        //int history;
+
         public static void main(String[] args) {
-                List<Account> accList = new ArrayList<>();
-                accList.add(new Account(11, "MARK", "Checking", "10000",0.1));
-                accList.add(new Account(12, "DERA", "Credit", "20000",0.2));
-                accList.add(new Account(13, "ALAIN", "credit", "30000",0.3));
-                accList.add(new Account(14, "ME", "Saving", "40000",0.4));
-                accList.add(new Account(15, "BIKORA", "Debit", "50000",0.7));
-                accList.add(new Account(16, "BEBE", "Debit", "60000",0.5));
-                accList.add(new Account(17, "HI", "Credit", "70000",0.6));
-                accList.add(new Account(18, "BRIGHT", "Debit", "80000",0.7));
-                accList.add(new Account(19, "MANZI", "Debit", "90000",0.8));
-                accList.add(new Account(20, "MANZI", "Saving", "990000",0.9));
+                company comp = new company(6, 7);
+
+                System.out.println("history: comp.history");
+                Scanner scan = new Scanner(System.in);
+                scan = new Scanner(System.in);
+                String ch;
+               int deposit;
+                int withdraw;
+                int history;
 
 
+                do{
+                        System.out.print("1. Company 1\n2. Company 2\n3. Company 3\n Choose your company: ");
+                        ch=scan.nextLine();
+                        System.out.print("amount to deposit: ");
+                        deposit= Integer.parseInt(scan.nextLine());
+                        System.out.print("enter amount to withdraw: ");
+                        withdraw= Integer.parseInt(scan.nextLine());
+                        switch (ch) {
+                                case "1" -> {
+                                        System.out.println("This is company 1\n");
+                                        company company = new comp1();
+                                        System.out.println("Company's interest is: "+company.interestRate());
+                                        System.out.println("The minimum duration is 3years");
+                                }
+                                case "2" -> {
+                                        System.out.println("This is company 2\n");
+                                        company company = new comp2();
+                                        System.out.println("Company's interest is: "+company.interestRate());
+                                        System.out.println("The minimum duration is 4years");
+                                }
 
-                for (Account acc:accList){
-                        System.out.println(acc);
-                }
+                                case "3" -> {
+                                        System.out.println("This is company 3\n");
+                                        company company = new comp3();
+                                        System.out.println("Company's interest is: "+company.interestRate());
+                                        System.out.println("The minimum duration is 1years");
+                                }
+
+                        }
+
+
+                }while(!ch.equals("0"));
         }
 }
